@@ -5,13 +5,18 @@ import Spinner from '../../components/spinner/spinner';
 const Home = () => {
   const [books, setBooks] = useState(null);
   const [searchField, setSearchField] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const performSearch = () => {
     if(searchField) {
       const searchQuery = searchField.split('').map(e => e===' ' ? '+' : e).join('');
+      setIsLoading(true);
       fetch("https://openlibrary.org/search.json?q="+searchQuery)
         .then(data => data.json())
-        .then(data => setBooks(data));
+        .then(data => { 
+          setIsLoading(false);
+          setBooks(data);
+        })
     }
   }
 
@@ -23,9 +28,11 @@ const Home = () => {
       <div>
         <input type="text" name="bookSearch" onChange={e=>setSearchField(e.target.value)}/>
         <button onClick={performSearch}>search</button>
-        <div>search compleated {books?.numFound} books found</div>
-        { books?.docs.map(book => <Book book={book} />) }
-        <Spinner />
+        { !isLoading ?  <>
+          <div>search compleated {books?.numFound} books found</div>
+          { books?.docs.map(book => <Book book={book} />) }
+          </> : <Spinner /> 
+        }
       </div>
     </>
   );
