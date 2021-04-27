@@ -1,0 +1,33 @@
+.baseContainer form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.baseContainer form input, 
+.baseContainer form button,
+.baseContainer form label 
+.baseContainer form .navlink {
+  margin-bottom: 2rem;
+}
+
+.baseContainer form button {
+  outline: 0;
+  border: 0;
+  font-size: var(--largeFont);
+  color: var(--backgroundColor);
+  background-color: var(--primaryColor);
+  padding: .5rem;
+}
+
+.baseContainer form button:active{
+  background-color: var(--primaryColorLight);
+}
+
+.baseContainer form .navlink {
+  background-color: #fff;
+  color: black;
+  text-decoration: none;
+  padding: .5rem;
+  border: 1px solid hsla(0, 0%, 20%, .2);
+}

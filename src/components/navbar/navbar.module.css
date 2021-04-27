@@ -1,0 +1,48 @@
+.baseContainer {
+}
+
+.dropDown {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  font-size: var(--fontLarge);
+  background-color: var(--backgroundColorLight, #fff);
+  width: 100%;
+}
+
+.dropDown .navlink {
+  padding: 2rem;
+  text-decoration: none;
+  color: black;
+}
+
+.dropDown .navlink:active {
+  background-color: var(--primaryColorLighter);
+}
+
+.dropDown .navlink:hover {
+  background-color: var(--primaryColorLighter);
+}
+
+.bar {
+  background-color: var(--primaryColor);
+}
+
+.bar button {
+  border: 0;
+  outline: 0;
+  background-color: var(--primaryColor);
+}
+
+.bar button:active {
+  background-color: var(--primaryColorLight);
+}
+
+.menuButtonImage {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 2em;
+  height: 2em;
+}
