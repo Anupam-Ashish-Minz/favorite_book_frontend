@@ -1,0 +1,25 @@
+.listOfBooks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bookContainer {
+  width: 150px;
+  height: auto;
+}
+
+.backdrop {
+  width: 150px;
+  height: 150px;
+}
+
+.backdrop img {
+  width: auto;
+  height: inherit;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 //import searchIcon from '../../../assets/search_icon.svg';
 import Spinner from '../../components/spinner/spinner';
 import styles from './home.module.css';
@@ -30,7 +31,9 @@ const Home = () => {
       <button onClick={performSearch}>search</button>
       { !isLoading ?  <>
         <div>search compleated {books?.numFound} books found</div>
-        { books?.docs.map(book => <Book book={book} />) }
+        <div className={styles.listOfBooks}>
+          { books?.docs.map(book => <Book book={book} key={book.key} />) }
+        </div>
       </> : <Spinner /> 
       }
     </div>
@@ -40,11 +43,13 @@ const Home = () => {
 const Book = (props) => {
   return (
     <div className={styles.bookContainer}>
-      <div className={styles.backdrop}>
-        <img src={`http://covers.openlibrary.org/b/id/${props.book.cover_i}-M.jpg`} alt="" />
-      </div>
-      <h3>{props.book?.title}</h3>
-      <h4>{props.book?.author_name}</h4>
+      <Link to={`${props.book.key}`} className={styles.link}>
+        <div className={styles.backdrop}>
+          <img src={`https://covers.openlibrary.org/b/id/${props.book.cover_i}-M.jpg`} alt="" />
+        </div>
+        <p>{props.book?.title}</p>
+        <p>{props.book?.author_name}</p>
+      </Link>
     </div>
   );
 };
