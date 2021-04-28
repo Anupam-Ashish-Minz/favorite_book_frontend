@@ -42,6 +42,7 @@ const BookDetail = () => {
         <div>{book?.title}</div>
         <div>{authors.name}</div>
         <SlideShow covers={book.covers} />
+        <div><button>add to favorites</button></div>
       </div>
       }
     </>

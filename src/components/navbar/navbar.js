@@ -5,7 +5,7 @@ import menuIcon from '../../assets/menu_icon.svg';
 import closeIcon from '../../assets/close_icon.svg';
 
 // this is a comment
-const Navbar = () => {
+const Navbar = (props) => {
   const [isHidden, setIsHidden] = useState(true);
 
   const toggleDropDown = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
       <div style={isHidden ? {display: "none"} : {display: "flex"}} className={styles.dropDown}>
         <Link onClick={toggleDropDown} className={styles.navlink} to="/">Home</Link>
         <Link onClick={toggleDropDown} className={styles.navlink} to="/about">About</Link>
-        <Link onClick={toggleDropDown} className={styles.navlink} to="/login">Login</Link>
+        <Link onClick={toggleDropDown} className={styles.navlink} to="/login">{props.isLoggedIn ? <>Profile</> : <>Login</> }</Link>
       </div>
     </div>
   )
