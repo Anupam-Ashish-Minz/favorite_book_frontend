@@ -10,6 +10,16 @@ const BookDetail = () => {
   const [authors, setAuthors] = useState([]);
   const [cover, setCover] = useState(null);
 
+  const addBook = () => {
+    fetch("/api/favorites/add_book", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ "book_id": bookId.id })
+    });
+  }
+
   useEffect(()=>{
     setIsLoading(true);
     fetch(`https://openlibrary.org/works/${bookId.id}.json`)
@@ -42,7 +52,9 @@ const BookDetail = () => {
         <div>{book?.title}</div>
         <div>{authors.name}</div>
         <SlideShow covers={book.covers} />
-        <div><button>add to favorites</button></div>
+        <div>
+        <button onClick={addBook}>add to favorites</button>
+        </div>
       </div>
       }
     </>
