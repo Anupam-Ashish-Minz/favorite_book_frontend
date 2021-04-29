@@ -7,12 +7,20 @@ const Favorites = () => {
     fetch("/api/favorites")
       .then(data => data.json())
       .then(data => setData(data));
-  }, [])
+  }, []);
   return (
     <div>
       <div>favorites page</div>
       <div>{data?.user}</div>
-      <div>{data?.books.map(book => <div key={book.book_id}> favorite book id: {book.book_id}</div>)}</div>
+      <div>{data?.books.map(book => <>
+        <div>favorite book: {book.book_id}</div>
+        <img 
+          src={`http://covers.openlibrary.org/b/olid/${book.book_id}-M.jpg`} 
+          key={book.book_id} 
+          alt="book cover"
+        />
+      </>)}
+      </div>
     </div>
   );
 };
