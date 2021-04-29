@@ -24,6 +24,7 @@ const Navbar = (props) => {
         <Link onClick={toggleDropDown} className={styles.navlink} to="/">Home</Link>
         <Link onClick={toggleDropDown} className={styles.navlink} to="/about">About</Link>
         <Link onClick={toggleDropDown} className={styles.navlink} to="/login">{props.isLoggedIn ? <>Profile</> : <>Login</> }</Link>
+        <Link onClick={toggleDropDown} className={styles.navlink} to="/favorites">Favorties</Link>
       </div>
     </div>
   )

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import styles from './login.module.css';
 
-const Login = () => {
+const Login = (props) => {
   return (
     <div className={styles.baseContainer}>
       <form action="/login" method="POST">

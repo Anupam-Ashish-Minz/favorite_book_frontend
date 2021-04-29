@@ -40,7 +40,7 @@ function App() {
               <BookDetail />
             </Route>
             <Route exact path="/favorites">
-              <Favorites />
+              { !isLoggedIn ?  <Redirect to="/login" /> : <Favorites /> }
             </Route>
             <Route path="/" render={()=><h1>404</h1>} />
           </Switch>
